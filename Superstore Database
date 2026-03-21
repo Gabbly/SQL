@@ -25,20 +25,22 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
---Use SELECT to order items by prices from highest to lowest.
-SELECT *
+--Writing a query that orders the items by price 
+SELECT item_name, price
 FROM superstore
-ORDER BY price desc;
+ORDER BY price;
 
-SELECT COUNT (item_name)
+--Selecting the most expensive item
+SELECT MAX (price), item_name
 FROM superstore;
 
---Have to show a statistic about the price for items in the category of "Kitchen Supplies"
-SELECT SUM (price)
+--Selecting the least expensive item under the Kitchen Supplies category
+SELECT MIN (price), item_name
 FROM superstore
 WHERE category = 'Kitchen Supplies';
 
---Use SELECT to order items by average rating from highest to lowest
-SELECT *
+--Finding items under the Appliances category and ordering them by rating from highest to lowest. Showing their price as well.
+SELECT item_name, price, average_rating
 FROM superstore
-ORDER BY average_rating desc;
+WHERE category = 'Appliances'
+ORDER BY average_rating DESC;
